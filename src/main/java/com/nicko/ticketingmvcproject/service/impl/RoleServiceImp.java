@@ -2,9 +2,10 @@ package com.nicko.ticketingmvcproject.service.impl;
 
 import com.nicko.ticketingmvcproject.dto.RoleDTO;
 import com.nicko.ticketingmvcproject.service.RoleService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class RoleServiceImp extends AbstractMapService<RoleDTO, Long> implements RoleService {
 
 
