@@ -1,6 +1,7 @@
 package com.nicko.ticketingmvcproject.service.impl;
 
 import com.nicko.ticketingmvcproject.dto.ProjectDTO;
+import com.nicko.ticketingmvcproject.enums.Status;
 import com.nicko.ticketingmvcproject.service.ProjectService;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,9 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO, String> i
 
     @Override
     public ProjectDTO save(ProjectDTO object) {
+        if(object.getProjectStatus()== null){
+            object.setProjectStatus(Status.OPEN);
+        }
         return super.save(object.getProjectCode(), object);
     }
 

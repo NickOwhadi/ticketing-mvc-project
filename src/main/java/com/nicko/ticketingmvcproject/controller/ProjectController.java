@@ -8,6 +8,7 @@ import com.nicko.ticketingmvcproject.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,6 +35,23 @@ public class ProjectController {
     @PostMapping("/create")
     public String insertProject(ProjectDTO project, Model model) {
         projectService.save(project);
+        return "redirect:/project/create";
+    }
+    @GetMapping("/update/{projectname}")
+    public String editUser(@PathVariable("projectname") String projectname, Model model) {
+
+        model.addAttribute("project", new ProjectDTO());
+        model.addAttribute("managers", userService.findAll());
+        model.addAttribute("projects", projectService.findAll());
+        return "project/create";
+
+    }
+
+    @PostMapping("/update")
+    public String updateProject(ProjectDTO project) {
+
+        projectService.update(project);
+
         return "redirect:/project/create";
     }
 }
