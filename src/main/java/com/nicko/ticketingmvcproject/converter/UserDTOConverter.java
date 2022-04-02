@@ -1,6 +1,6 @@
 package com.nicko.ticketingmvcproject.converter;
 
-import com.nicko.ticketingmvcproject.dto.RoleDTO;
+
 import com.nicko.ticketingmvcproject.dto.UserDTO;
 import com.nicko.ticketingmvcproject.service.UserService;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
